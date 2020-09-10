@@ -1,0 +1,93 @@
+﻿@page "/CadastrarUsuario/CadastrarUsuario"
+
+<h1>Cadastrar Usuario</h1>
+
+<div class="card m-2">
+    <EditForm Model="usuario" OnValidSubmit="Criar">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <p>
+            <label>
+                Titulo:
+            </label>
+            <InputSelect @bind-Value="usuario.Titulo">
+                <option value=""></option>
+                <option value="Sr.">Sr.</option>
+                <option value="Sra.">Sra.</option>
+            </InputSelect>
+        </p>
+        <p>
+            <label>
+                Nome:
+                <InputText @bind-Value="usuario.Nome" />
+                <ValidationMessage For="@(() => usuario.Nome)" />
+            </label>
+        </p>
+        <p>
+            <label>
+                Sobrenome:
+                <InputText @bind-Value="usuario.Sobrenome" />
+                <ValidationMessage For="@(() => usuario.Sobrenome)" />
+            </label>
+        </p>
+        <p>
+            <label>
+                Data de Nascimento:
+                <InputDate @bind-Value="usuario.DataNascimento" />
+                <ValidationMessage For="@(() => usuario.DataNascimento)" />
+            </label>
+        </p>
+        <p>
+            <label>
+                Email:
+                <InputText @bind-Value="usuario.Email" />
+                <ValidationMessage For="@(() => usuario.Email)" />
+            </label>
+        </p>
+        <p>
+            <label>
+                Senha:
+                <InputText @bind-Value="usuario.Senha" />
+                <ValidationMessage For="@(() => usuario.Senha)" />
+            </label>
+        </p>
+        <p>
+            <label>
+                Confirmar Senha:
+                <InputText @bind-Value="usuario.ConfirmarSenha" />
+                <ValidationMessage For="@(() => usuario.ConfirmarSenha)" />
+            </label>
+        </p>
+        <p>
+            <label>
+                Termos de Serviço:
+                <InputCheckbox @bind-Value="usuario.TermosServ" />
+                <ValidationMessage For="@(() => usuario.TermosServ)" />
+            </label>
+        </p>
+
+            <button type="submit">Enviar</button>
+    </EditForm>
+</div>
+
+
+
+@code{
+
+    Usuario usuario = new Usuario();
+
+    private void HandleValidSubmit() { }
+
+    private void Criar()
+    {
+        Console.WriteLine(usuario.Titulo);
+        Console.WriteLine(usuario.Nome);
+        Console.WriteLine(usuario.Sobrenome);
+        Console.WriteLine(usuario.DataNascimento);
+        Console.WriteLine(usuario.Email);
+        Console.WriteLine(usuario.Senha);
+        Console.WriteLine(usuario.TermosServ);
+    }
+}
+

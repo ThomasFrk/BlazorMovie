@@ -1,0 +1,34 @@
+﻿@page "/Genero/Criar"
+
+<h3>Cadastrar Genero</h3>
+
+<EditForm Model= "genero" OnValidSubmit="Criar">
+    <DataAnnotationsValidator/>
+    <div class="form-group">
+        <label>Genero</label>
+        <div>
+            <InputText placeholder="Digite o Genero" class="form-control" @bind-Value=@genero.Name />
+            <ValidationMessage For="@(() => genero.Name )" />
+            
+        </div>
+        <button class="btn btn-success" type="submit">Salvar</button>
+
+
+
+    </div>
+</EditForm>
+
+
+@code {
+
+    Genero genero = new Genero();
+
+    private void Criar()
+    {
+
+        Console.WriteLine(genero.Name);
+        
+        
+    }
+
+}
