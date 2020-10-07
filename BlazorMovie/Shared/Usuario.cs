@@ -7,6 +7,8 @@ namespace BlazorMovie.Shared
 {
     public class Usuario
     {
+
+        public int Id { get; set; }
         [Required]
         public string Titulo { get; set; }
 
